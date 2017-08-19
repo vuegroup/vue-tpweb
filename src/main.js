@@ -18,7 +18,7 @@ Vue.use(ElementUI)
 const whiteList = []// 不验证用户登陆白名单 配置
 router.beforeEach((to, from, next) => {
   if (getToken()) { // 判断是否有Token
-    if (to.path == '/login') {
+    if (to.path === '/login') {
       next({ path: '/' })
     } else {
       // 判断是否有当前用户权限
