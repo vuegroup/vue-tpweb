@@ -16,25 +16,20 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import panThumb from 'components/PanThumb';
-import countTo from 'vue-count-to';
-import todoList from 'components/TodoList';
+import { mapGetters } from 'vuex'
+import panThumb from 'components/PanThumb'
+import countTo from 'vue-count-to'
+import todoList from 'components/TodoList'
 export default {
-    name: 'dashboard-editor',
-    components: { panThumb, countTo, todoList },
-    data() {
-        return {
-           
-        }
-    },
-    computed: {
-        ...mapGetters([
-            'name',
-            'avatar',
-            'roles'
-        ])
-    }
+  name: 'dashboard-editor',
+  components: { panThumb, countTo, todoList },
+  computed: {
+    ...mapGetters([
+      'name',
+      'avatar',
+      'roles'
+    ])
+  }
 }
 </script>
 
