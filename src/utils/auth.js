@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Cookies from 'js-cookie'
 
 const TokenKey = 'User-Token'
@@ -23,3 +24,21 @@ export function setToken (token) {
 export function removeToken () {
   return Cookies.remove(TokenKey)
 }
+=======
+//Token管理
+import Cookies from 'js-cookie'
+
+const TokenKey = 'Admin-Token'
+
+export function getToken() {
+    return Cookies.get(TokenKey)
+  }
+
+  export function setToken(token) {
+    return Cookies.set(TokenKey, token)
+  }
+  
+  export function removeToken() {
+    return Cookies.remove(TokenKey)
+  }
+>>>>>>> e45379c4ac259799d7dde428c08ee411de6ded79
