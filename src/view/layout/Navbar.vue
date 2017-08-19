@@ -28,13 +28,13 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
-  import Levelbar from './Levelbar';
-  import TabsView from './TabsView';
-  import Hamburger from 'components/Hamburger';
-  import Screenfull from 'components/Screenfull';
-  import ErrorLog from 'components/ErrLog';
-  import errLogStore from 'store/errLog';
+  import { mapGetters } from 'vuex'
+  import Levelbar from './Levelbar'
+  import TabsView from './TabsView'
+  import Hamburger from 'components/Hamburger'
+  import Screenfull from 'components/Screenfull'
+  import ErrorLog from 'components/ErrLog'
+  import errLogStore from 'store/errLog'
 
   export default {
     components: {
@@ -44,7 +44,7 @@
       ErrorLog,
       Screenfull
     },
-    data() {
+    data () {
       return {
         log: errLogStore.state.errLog
       }
@@ -57,13 +57,13 @@
       ])
     },
     methods: {
-      toggleSideBar() {
+      toggleSideBar () {
         this.$store.dispatch('ToggleSideBar')
       },
-      logout() {
+      logout () {
         this.$store.dispatch('LogOut').then(() => {
-          location.reload();// 为了重新实例化vue-router对象 避免bug
-        });
+          location.reload()// 为了重新实例化vue-router对象 避免bug
+        })
       }
     }
   }

@@ -11,31 +11,31 @@
 <script>
   export default {
     computed: {
-      visitedViews() {
+      visitedViews () {
         return this.$store.state.app.visitedViews.slice(-6)
       }
     },
     methods: {
-      closeViewTabs(view, $event) {
+      closeViewTabs (view, $event) {
         this.$store.dispatch('delVisitedViews', view)
         $event.preventDefault()
       },
-      generateRoute() {
+      generateRoute () {
         if (this.$route.matched[this.$route.matched.length - 1].name) {
           return this.$route.matched[this.$route.matched.length - 1]
         }
         this.$route.matched[0].path = '/'
         return this.$route.matched[0]
       },
-      addViewTabs() {
+      addViewTabs () {
         this.$store.dispatch('addVisitedViews', this.generateRoute())
       },
-      isActive(path) {
+      isActive (path) {
         return path === this.$route.path
       }
     },
     watch: {
-      $route() {
+      $route () {
         this.addViewTabs()
       }
     }

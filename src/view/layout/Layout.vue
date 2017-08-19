@@ -20,8 +20,8 @@
       AppMain
     },
     computed: {
-      sidebar() {
-        return this.$store.state.app.sidebar;
+      sidebar () {
+        return this.$store.state.app.sidebar
       }
     }
   }
