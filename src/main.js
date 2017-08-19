@@ -5,17 +5,17 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-import './mock/index.js'  // 该项目所有请求使用mockjs模拟
+// import './mock/index.js'  // 该项目所有请求使用mockjs模拟
 import Multiselect from 'vue-multiselect'// 使用的一个多选框组件，element-ui的select不能满足所有需求
 import 'vue-multiselect/dist/vue-multiselect.min.css'// 多选框组件css
-import { getToken } from 'utils/auth'
+import { getToken } from './utils/auth'
 Vue.config.productionTip = false
 
 // 注册需要使用的插件
 Vue.component('multiselect', Multiselect)
 Vue.use(ElementUI)
 
-const whiteList = []// 不验证用户登陆白名单 配置
+const whiteList = ['/login', '/authredirect', '/reset', '/sendpwd']// 不验证用户登陆白名单 配置
 router.beforeEach((to, from, next) => {
   if (getToken()) { // 判断是否有Token
     if (to.path === '/login') {

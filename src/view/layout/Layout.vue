@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import { Navbar, Sidebar, AppMain } from 'views/layout';
+  import { Navbar, Sidebar, AppMain } from 'view/layout'
 
   export default {
     name: 'layout',

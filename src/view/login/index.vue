@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import { isWscnEmail } from 'utils/validate'
 
 export default {
   name: 'login',
@@ -81,6 +80,7 @@ export default {
       // })
     }
   }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
