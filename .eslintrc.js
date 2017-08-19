@@ -8,6 +8,7 @@ module.exports = {
   },
   env: {
     browser: true,
+    node: true
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
@@ -15,8 +16,19 @@ module.exports = {
   plugins: [
     'html'
   ],
+  // check if imports actually resolve
+  settings: {
+    'import/resolver': {
+      'webpack': {
+        'config': 'build/webpack.base.conf.js'
+      }
+    }
+  },
   // add your custom rules here
-  'rules': {
+  rules: {
+    "indent": [0, 4],//缩进风格
+    "no-irregular-whitespace": 1,//不能有不规则的空格
+    "space-before-function-paren": [0, "always"],//函数定义时括号前面要不要有空格
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await
