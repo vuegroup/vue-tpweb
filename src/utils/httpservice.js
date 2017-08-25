@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from '../store'
-import { getToken } from 'utils/auth'
+import { getToken } from './auth'
 
 const httpservice = axios.create({
   baseURL: process.env.BASE_API, // api的base_url

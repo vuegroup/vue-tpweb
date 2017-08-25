@@ -21,7 +21,7 @@
 
             <el-button class="filter-item" type="primary" v-waves icon="search" @click="handleFilter">搜索</el-button>
             <el-button class="filter-item" style="margin-left: 10px;" @click="handleCreate" type="primary" icon="edit">添加</el-button>
-            <el-button class="filter-item" type="primary" icon="document" @click="handleDownload">导出</el-button>
+            <!-- <el-button class="filter-item" type="primary" icon="document" @click="handleDownload">导出</el-button> -->
             <el-checkbox class="filter-item" @change='tableKey=tableKey+1' v-model="showAuditor">显示审核人</el-checkbox>
         </div>
 
@@ -147,21 +147,20 @@
 </template>
 
 <script>
-import { fetchList, fetchPv } from 'api/article_table';
-import { parseTime } from 'utils';
+// import { fetchList, fetchPv } from 'api/article_table';
+import { parseTime } from '../../utils'
 
 const calendarTypeOptions = [
     { key: 'CN', display_name: '中国' },
     { key: 'US', display_name: '美国' },
-    { key: 'JP', display_name: '日本' },
-    { key: 'EU', display_name: '欧元区' }
-];
+    { key: 'JP', display_name: '日本' }
+]
 
 // arr to obj
 const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
-    acc[cur.key] = cur.display_name;
+    acc[cur.key] = cur.display_name
     return acc
-}, {});
+}, {})
 
 export default {
     name: 'table_demo',
@@ -204,7 +203,7 @@ export default {
         }
     },
     created() {
-        this.getList();
+        this.getList()
     },
     filters: {
         statusFilter(status) {
@@ -212,7 +211,7 @@ export default {
                 published: 'success',
                 draft: 'gray',
                 deleted: 'danger'
-            };
+            }
             return statusMap[status]
         },
         typeFilter(type) {
@@ -221,43 +220,43 @@ export default {
     },
     methods: {
         getList() {
-            this.listLoading = true;
-            fetchList(this.listQuery).then(response => {
-                this.list = response.data.items;
-                this.total = response.data.total;
-                this.listLoading = false;
-            })
+            // this.listLoading = true
+            // fetchList(this.listQuery).then(response => {
+            //     this.list = response.data.items
+            //     this.total = response.data.total
+            //     this.listLoading = false
+            // })
         },
         handleFilter() {
-            this.getList();
+            this.getList()
         },
         handleSizeChange(val) {
-            this.listQuery.limit = val;
-            this.getList();
+            this.listQuery.limit = val
+            this.getList()
         },
         handleCurrentChange(val) {
-            this.listQuery.page = val;
-            this.getList();
+            this.listQuery.page = val
+            this.getList()
         },
         timeFilter(time) {
             if (!time[0]) {
-                this.listQuery.start = undefined;
-                this.listQuery.end = undefined;
-                return;
+                this.listQuery.start = undefined
+                this.listQuery.end = undefined
+                return
             }
-            this.listQuery.start = parseInt(+time[0] / 1000);
-            this.listQuery.end = parseInt((+time[1] + 3600 * 1000 * 24) / 1000);
+            this.listQuery.start = parseInt(+time[0] / 1000)
+            this.listQuery.end = parseInt((+time[1] + 3600 * 1000 * 24) / 1000)
         },
 
         handleCreate() {
-            this.resetTemp();
-            this.dialogStatus = 'create';
-            this.dialogFormVisible = true;
+            this.resetTemp()
+            this.dialogStatus = 'create'
+            this.dialogFormVisible = true
         },
         handleUpdate(row) {
-            this.temp = Object.assign({}, row);
-            this.dialogStatus = 'update';
-            this.dialogFormVisible = true;
+            this.temp = Object.assign({}, row)
+            this.dialogStatus = 'update'
+            this.dialogFormVisible = true
         },
         handleDelete(row) {
             this.$notify({
@@ -265,40 +264,40 @@ export default {
                 message: '删除成功',
                 type: 'success',
                 duration: 2000
-            });
-            const index = this.list.indexOf(row);
-            console.log(index);
-            this.list.splice(index, 1);
+            })
+            const index = this.list.indexOf(row)
+            console.log(index)
+            this.list.splice(index, 1)
         },
         create() {
-            this.temp.id = parseInt(Math.random() * 100) + 1024;
-            this.temp.timestamp = +new Date();
-            this.temp.author = '原创作者';
-            this.list.unshift(this.temp);
-            this.dialogFormVisible = false;
+            this.temp.id = parseInt(Math.random() * 100) + 1024
+            this.temp.timestamp = +new Date()
+            this.temp.author = '原创作者'
+            this.list.unshift(this.temp)
+            this.dialogFormVisible = false
             this.$notify({
                 title: '成功',
                 message: '创建成功',
                 type: 'success',
                 duration: 2000
-            });
+            })
         },
         update() {
-            this.temp.timestamp = +this.temp.timestamp;
+            this.temp.timestamp = +this.temp.timestamp
             for (const v of this.list) {
                 if (v.id === this.temp.id) {
-                    const index = this.list.indexOf(v);
-                    this.list.splice(index, 1, this.temp);
-                    break;
+                    const index = this.list.indexOf(v)
+                    this.list.splice(index, 1, this.temp)
+                    break
                 }
             }
-            this.dialogFormVisible = false;
+            this.dialogFormVisible = false
             this.$notify({
                 title: '成功',
                 message: '更新成功',
                 type: 'success',
                 duration: 2000
-            });
+            })
         },
         resetTemp() {
             this.temp = {
@@ -309,23 +308,23 @@ export default {
                 title: '',
                 status: 'published',
                 type: ''
-            };
+            }
         },
         handleFetchPv(pv) {
-            fetchPv(pv).then(response => {
-                this.pvData = response.data.pvData;
-                this.dialogPvVisible = true;
-            })
+            // fetchPv(pv).then(response => {
+            //     this.pvData = response.data.pvData
+            //     this.dialogPvVisible = true
+            // })
         },
-        handleDownload() {
-            require.ensure([], () => {
-                const { export_json_to_excel } = require('vendor/Export2Excel');
-                const tHeader = ['时间', '地区', '类型', '标题', '重要性'];
-                const filterVal = ['timestamp', 'province', 'type', 'title', 'importance'];
-                const data = this.formatJson(filterVal, this.list);
-                export_json_to_excel(tHeader, data, 'table数据');
-            })
-        },
+        // handleDownload() {
+        //     require.ensure([], () => {
+        //         const { export_json_to_excel } = require('vendor/Export2Excel');
+        //         const tHeader = ['时间', '地区', '类型', '标题', '重要性'];
+        //         const filterVal = ['timestamp', 'province', 'type', 'title', 'importance'];
+        //         const data = this.formatJson(filterVal, this.list);
+        //         export_json_to_excel(tHeader, data, 'table数据');
+        //     })
+        // },
         formatJson(filterVal, jsonData) {
             return jsonData.map(v => filterVal.map(j => {
                 if (j === 'timestamp') {

@@ -17,12 +17,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import panThumb from 'components/PanThumb'
-import countTo from 'vue-count-to'
-import todoList from 'components/TodoList'
 export default {
   name: 'dashboard-editor',
-  components: { panThumb, countTo, todoList },
   computed: {
     ...mapGetters([
       'name',

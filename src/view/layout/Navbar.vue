@@ -31,22 +31,14 @@
   import { mapGetters } from 'vuex'
   import Levelbar from './Levelbar'
   import TabsView from './TabsView'
-  import Hamburger from 'components/Hamburger'
-  import Screenfull from 'components/Screenfull'
-  import ErrorLog from 'components/ErrLog'
-  import errLogStore from 'store/errLog'
 
   export default {
     components: {
       Levelbar,
-      TabsView,
-      Hamburger,
-      ErrorLog,
-      Screenfull
+      TabsView
     },
     data () {
       return {
-        log: errLogStore.state.errLog
       }
     },
     computed: {

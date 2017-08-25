@@ -6,8 +6,8 @@
 
 
 <script>
-  import { mapGetters } from 'vuex';
-  import SidebarItem from './SidebarItem';
+  import { mapGetters } from 'vuex'
+  import SidebarItem from './SidebarItem'
   export default {
     components: { SidebarItem },
     computed: {

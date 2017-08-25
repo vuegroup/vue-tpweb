@@ -25,19 +25,20 @@
 </template>
 
 <script>
-
+import iconSvg from '../../components/Icon-svg'
 export default {
   name: 'login',
+  components: { iconSvg },
   data() {
     const validateEmail = (rule, value, callback) => {
-      if (value.length == 0) {
+      if (value.length === 0) {
         callback(new Error('账号不能为空'))
       } else {
         callback()
       }
     }
     const validatePass = (rule, value, callback) => {
-      if (value.length == 0) {
+      if (value.length === 0) {
         callback(new Error('密码不能为空'))
       } else {
         callback()
@@ -62,22 +63,22 @@ export default {
   },
   methods: {
     handleLogin() {
-      this.$router.push({ path: '/' })
-      // this.$refs.loginForm.validate(valid => {
-      //   if (valid) {
-      //     this.loading = true
-      //     this.$store.dispatch('LoginByEmail', this.loginForm).then(() => {
-      //       this.loading = false
-      //       this.$router.push({ path: '/' })
-      //         // this.showDialog = true;
-      //     }).catch(() => {
-      //       this.loading = false
-      //     })
-      //   } else {
-      //     console.log('error submit!!')
-      //     return false
-      //   }
-      // })
+      this.$refs.loginForm.validate(valid => {
+        if (valid) {
+          console.log(this.$store)
+          this.loading = true
+          this.$store.dispatch('LoginByEmail', this.loginForm).then(() => {
+            this.loading = false
+            this.$router.push({ path: '/' })
+              // this.showDialog = true;
+          }).catch(() => {
+            this.loading = false
+          })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
     }
   }
 }
