@@ -31,7 +31,8 @@ module.exports = {
       'store': path.resolve(__dirname, '../src/store'),
       'router': path.resolve(__dirname, '../src/router'),
       'mock': path.resolve(__dirname, '../src/mock')
-  }},
+    }
+  },
   externals: {
     jquery: 'jQuery'
   },
