@@ -21,16 +21,16 @@ function hasPermission(roles, route) {
  * @param roles
  */
 function filterAsyncRouter(asyncRouterMap, roles) {
-  const accessedRouters = asyncRouterMap.filter(route => {
-    if (hasPermission(roles, route)) {
-      if (route.children && route.children.length) {
-        route.children = filterAsyncRouter(route.children, roles)
-      }
-      return true
-    }
-    return false
-  })
-  return accessedRouters
+  // const accessedRouters = asyncRouterMap.filter(route => {
+  //   if (hasPermission(roles, route)) {
+  //     if (route.children && route.children.length) {
+  //       route.children = filterAsyncRouter(route.children, roles)
+  //     }
+  //     return true
+  //   }
+  //   return false
+  // })
+  // return accessedRouters
 }
 
 const permission = {
