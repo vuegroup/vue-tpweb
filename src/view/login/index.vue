@@ -70,7 +70,7 @@ export default {
           this.$store.dispatch('LoginByEmail', this.loginForm).then(() => {
             this.loading = false
             this.$router.push({ path: '/' })
-              // this.showDialog = true;
+            // this.showDialog = true;
           }).catch(() => {
             this.loading = false
           })
