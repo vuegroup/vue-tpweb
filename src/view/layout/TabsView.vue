@@ -24,7 +24,7 @@
         if (this.$route.matched[this.$route.matched.length - 1].name) {
           return this.$route.matched[this.$route.matched.length - 1]
         }
-        this.$route.matched[0].path = '/'
+        this.$route.matched[0].path = '../list/add'
         return this.$route.matched[0]
       },
       addViewTabs () {
@@ -36,6 +36,7 @@
     },
     watch: {
       $route () {
+        console.log(this.$route.matched.length)
         this.addViewTabs()
       }
     }

@@ -1,9 +1,9 @@
 <template>
 	<el-menu class="navbar" mode="horizontal">
-		<!-- <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger> -->
+		<hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
 		<levelbar></levelbar>
 		<tabs-view></tabs-view>
-		<!-- <screenfull class='screenfull'></screenfull> -->
+		<screenfull class='screenfull'></screenfull>
 		<el-dropdown class="avatar-container" trigger="click">
 			<div class="avatar-wrapper">
 				<img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
@@ -30,12 +30,15 @@
   import { mapGetters } from 'vuex'
   import Levelbar from './Levelbar'
 	import TabsView from './TabsView'
-  import Screenfull from '../../components/Screenfull'
+	import Screenfull from '../../components/Screenfull'
+	import Hamburger from '../../components/Hamburger'
 
   export default {
     components: {
       Levelbar,
-      TabsView
+			TabsView,
+			Screenfull,
+			Hamburger
     },
     data () {
       return {

@@ -9,7 +9,7 @@ import 'element-ui/lib/theme-default/index.css'
 import Multiselect from 'vue-multiselect'// 使用的一个多选框组件，element-ui的select不能满足所有需求
 import 'vue-multiselect/dist/vue-multiselect.min.css'// 多选框组件css
 import IconSvg from 'components/Icon-svg'// svg 组件
-import './mock/index.js' // 使用模拟数据的引用，正式环境可去掉
+import 'mock/index.js' // 使用模拟数据的引用，正式环境可去掉
 import { getToken } from './utils/auth'
 Vue.config.productionTip = false
 
@@ -21,7 +21,6 @@ Vue.use(ElementUI)
 const whiteList = ['/login', '/authredirect', '/reset', '/sendpwd']// 不验证用户登陆白名单 配置
 router.beforeEach((to, from, next) => {
   if (getToken()) { // 判断是否有Token
-    console.log(11111111111)
     if (to.path === '/login') {
       next({ path: '/' })
     } else {
@@ -32,7 +31,6 @@ router.beforeEach((to, from, next) => {
           const roles = res.data.role
           store.dispatch('GenerateRoutes', { roles }).then(() => { // 生成可访问的路由表
             router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
-            console.log(store.getters.addRouters)
             next()
           })
         }).catch(() => {
@@ -42,6 +40,7 @@ router.beforeEach((to, from, next) => {
           })
         })
       } else {
+        next()
         // if (hasPermission(store.getters.roles, to.meta.role)) {
         //   next();//
         // } else {

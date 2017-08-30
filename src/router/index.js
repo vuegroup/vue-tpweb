@@ -36,8 +36,18 @@ export const asyncRouterMap = [
     icon: 'EXCEL',
     noDropdown: true,
     children: [
-      { path: 'index', component: _import('list/index'), name: '列表表单' }
+      { path: 'index', component: _import('list/index'), name: '列表表单' },
+      { path: 'add', component: _import('list/add'), name:'添加', hidden: true}
     ]
   },
-  { path: '*', redirect: '/404', hidden: true }
+  {
+    path: '/test',
+    component: Layout,
+    redirect: '/test/index',
+    name: '测试模块',
+    icon: 'EXCEL',
+    children: [
+      { path: 'children', component: _import('test/children'), name: '测试子模块1' },
+    ]
+  }
 ]

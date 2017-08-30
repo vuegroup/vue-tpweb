@@ -1,6 +1,6 @@
 <template>
     <div class="app-container calendar-list-container">
-        <div class="filter-container">
+        <div class="filter-container">111111111111111111111111111111111111111111111
             <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item" placeholder="标题" v-model="listQuery.title">
             </el-input>
 
@@ -19,10 +19,8 @@
                 </el-option>
             </el-select>
 
-            <el-button class="filter-item" type="primary" @click="handleFilter">搜索</el-button>
-            <router-link :to="add">
-                <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="edit">添加</el-button>
-            </router-link>
+            <el-button class="filter-item" type="primary"  @click="handleFilter">搜索</el-button>
+            <el-button class="filter-item" style="margin-left: 10px;" @click="handleCreate" type="primary" icon="edit">添加</el-button>
             <!-- <el-button class="filter-item" type="primary" icon="document" @click="handleDownload">导出</el-button> -->
             <el-checkbox class="filter-item" @change='tableKey=tableKey+1' v-model="showAuditor">显示审核人</el-checkbox>
         </div>
@@ -165,10 +163,9 @@ const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
 }, {})
 
 export default {
-    name: 'table_demo',
+    name: 'children',
     data() {
         return {
-            add:'../list/add',
             list: null,
             total: null,
             listLoading: true,
