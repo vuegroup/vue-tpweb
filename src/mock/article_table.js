@@ -2,18 +2,17 @@ import Mock from 'mockjs'
 import { param2Obj } from '../utils/index.js'
 
 const List = []
-const count = 100
-
-for (let i = 0; i < count; i++) {
+const count = 101
+for (let i = 1; i < count; i++) {
   List.push(Mock.mock({
     id: '@increment',
     timestamp: +Mock.Random.date('T'),
-    author: '@cname',
+    author: '第'+i+'名作者',
     auditor: '@cname',
-    title: '@ctitle(10, 20)',
+    title: '第'+i+'条标题',
     forecast: '@float(0, 100, 2, 2)',
     importance: '@integer(1, 3)',
-    'type|1': ['CN', 'US', 'JP', 'EU'],
+    'type|1': ['CN', 'US', 'JP'],
     'status|1': ['published', 'draft', 'deleted'],
     pageviews: '@integer(300, 5000)'
   }))

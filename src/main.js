@@ -11,6 +11,7 @@ import 'nprogress/nprogress.css';// Progress 进度条 样式
 import * as filters from './filters'; // 全局vue filter
 import Multiselect from 'vue-multiselect'// 使用的一个多选框组件，element-ui的select不能满足所有需求
 import 'vue-multiselect/dist/vue-multiselect.min.css'// 多选框组件css
+import Sticky from 'components/Sticky'; // 粘性header组件
 import IconSvg from 'components/Icon-svg'// svg 组件
 import 'mock/index.js' // 使用模拟数据的引用，正式环境可去掉
 import { getToken } from './utils/auth'
@@ -19,6 +20,7 @@ Vue.config.productionTip = false
 // 注册需要使用的插件
 Vue.component('multiselect', Multiselect)
 Vue.component('icon-svg', IconSvg)
+Vue.component('Sticky', Sticky)
 Vue.use(ElementUI)
 
 

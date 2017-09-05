@@ -1,9 +1,9 @@
-import httpservice from '../utils/httpservice'
+import fetch from 'utils/httpservice';
 
 export function userSearch(name) {
-  return httpservice({
+  return fetch({
     url: '/search/user',
     method: 'get',
     params: { name }
-  })
+  });
 }

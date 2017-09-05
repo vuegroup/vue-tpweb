@@ -36,8 +36,7 @@ export const asyncRouterMap = [
     name: '测试模块One',
     icon: 'EXCEL',
     children: [
-      { path: 'index', component: _import('demo1/index'), name: '列表One' },
-      { path: 'add', component: _import('demo1/add'), name: '添加' }
+      { path: 'index', component: _import('demo1/index'), name: '列表One' }
     ]
   },
   {
@@ -47,6 +46,20 @@ export const asyncRouterMap = [
     icon: 'EXCEL',
     children: [
       { path: 'children', component: _import('demo2/index'), name: '子模块Two' },
+    ]
+  },
+  {
+    path: '/list',
+    component: Layout,
+    name: '列表demo',
+    icon: 'EXCEL',
+    children: [
+      { path: 'externaladd', component: _import('list/externaladd'), name: '新页面添加' },
+      { path: 'fixedheader', component: _import('list/fixedheader'), name: '固定表头' },
+      { path: 'unfixedheader', component: _import('list/unfixedheader'), name: '不固定表头' },
+      { path: 'drag', component: _import('list/drag'), name: '拖拽列表' },
+      { path: 'insideedit', component: _import('list/insideedit'), name: '行内编辑' },
+      { path: 'add', component: _import('list/add'), name: '添加', hidden: true }
     ]
   },
   { path: '*', redirect: '/404', hidden: true }

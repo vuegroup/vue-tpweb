@@ -1,16 +1,16 @@
-import httpservice from '../utils/httpservice'
+import fetch from 'utils/httpservice';
 
 export function getList() {
-  return httpservice({
+  return fetch({
     url: '/article/list',
     method: 'get'
-  })
+  });
 }
 
 export function getArticle() {
-  return httpservice({
+  return fetch({
     url: '/article/detail',
     method: 'get'
-  })
+  });
 }
 
