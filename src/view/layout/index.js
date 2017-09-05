@@ -8,3 +8,5 @@ export { default as Sidebar } from './Sidebar'
 export { default as Levelbar } from './Levelbar'
 // 菜单栏页面跳转控制
 export { default as AppMain } from './AppMain'
+export { default as AppMain2 } from './AppMain2'
+
