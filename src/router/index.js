@@ -54,6 +54,7 @@ export const asyncRouterMap = [
     name: '列表demo',
     icon: 'EXCEL',
     children: [
+      { path: 'insideadd', component: _import('list/insideadd'), name: '页面内添加' },
       { path: 'externaladd', component: _import('list/externaladd'), name: '新页面添加' },
       { path: 'fixedheader', component: _import('list/fixedheader'), name: '固定表头' },
       { path: 'unfixedheader', component: _import('list/unfixedheader'), name: '不固定表头' },
