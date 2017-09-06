@@ -106,9 +106,9 @@
           <span class="word-counter" v-show="contentShortLength">{{contentShortLength}}字</span>
         </el-form-item>
 
-        <!-- <div class="editor-container">
+        <div class="editor-container">
           <Tinymce :height=400 ref="editor" v-model="postForm.content"></Tinymce>
-        </div> -->
+        </div>
 
         <div style="margin-bottom: 20px;">
           <Upload v-model="postForm.image_uri"></Upload>

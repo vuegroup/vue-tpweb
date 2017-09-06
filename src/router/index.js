@@ -63,5 +63,26 @@ export const asyncRouterMap = [
       { path: 'add', component: _import('list/add'), name: '添加', hidden: true }
     ]
   },
+  {
+    path: '/select',
+    component: Layout,
+    name: '选择器',
+    icon: 'EXCEL',
+    children: [
+      { path: 'pt-select', component: _import('select/pt-select'), name: '普通选择器' },
+      { path: 'multi-select', component: _import('select/multi-select'), name: '多级选择器' },
+      { path: 'search-select', component: _import('select/search-select'), name: '搜索选择器' }
+    ]
+  },
+  {
+    path: '/tree',
+    component: Layout,
+    name: '树形结构',
+    icon: 'EXCEL',
+    noDropdown: true,
+    children: [
+      { path: 'index', component: _import('tree/index'), name: '树形结构' },
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
