@@ -5,6 +5,7 @@ import loginAPI from './login'
 import articleTableAPI from './article_table'
 import remoteSearchAPI from './remoteSearch'
 import selectAPI from './select'
+import treeApi from './tree'
 // 登录相关
 Mock.mock(/\/login\/loginbyemail/, 'post', loginAPI.loginByEmail)
 Mock.mock(/\/login\/logout/, 'post', loginAPI.logout)
@@ -19,4 +20,8 @@ Mock.mock(/\/search\/user/, 'get', remoteSearchAPI.searchUser)
 //选择器
 Mock.mock(/\/select\/pt/, 'get', selectAPI.getPtList)
 Mock.mock(/\/select\/search/, 'get', selectAPI.getSearchList)
+
+//树结构
+Mock.mock(/\/tree\/usermanage/, 'get', treeApi.getManageList)
+Mock.mock(/\/tree\/userlist/, 'get', treeApi.getUserList)
 export default Mock

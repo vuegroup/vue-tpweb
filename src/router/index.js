@@ -79,9 +79,9 @@ export const asyncRouterMap = [
     component: Layout,
     name: '树形结构',
     icon: 'EXCEL',
-    noDropdown: true,
     children: [
-      { path: 'index', component: _import('tree/index'), name: '树形结构' },
+      { path: 'index', component: _import('tree/index'), name: '结构演示' },
+      { path: 'usermanage', component: _import('tree/usermanage'), name: '用户管理' },
     ]
   },
   { path: '*', redirect: '/404', hidden: true }
